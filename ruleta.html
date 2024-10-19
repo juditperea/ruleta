@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta Francesa</title>
+    <style>
+        body {
+            background-color: #2b7a2d;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height:100%;
+        }
+
+        #resultado {
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #f3f3f3;
+            color: #333;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .rule {
+            height: 300px;
+            width: 300px;
+            margin-top: 20px;
+            border-radius: 50%;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+            margin-right:20mm;
+        }
+
+        .tapete {
+            margin-top: 20px;
+            height: 300px;
+            width: 520px;
+            border-radius: 20px;
+            border: 3px solid black;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .mesa{
+            display: flex;
+            flex-direction: row;
+        }
+        .form {
+            margin:15mm;
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form label, .form input, .form select, .form button {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .form label {
+            margin-right: 10px;
+            color: #444;
+        }
+
+        .form input, .form select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 98%;
+        }
+
+        .form button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            align-self: center;
+        }
+
+        .form button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="mesa">
+        <img class="rule" src="portfolio/fotos/ruleta.gif" alt="Ruleta">
+        <img class="tapete" src="portfolio/fotos/tapete.png" alt="Tapete">
+    </div>
+    
+
+    <div class="form">
+        <label for="quantitat">Cantidad apostada(€):</label>
+        <input type="text" id="quantitat" required>
+
+        <label for="tipusaposta">Tipo de apuesta:</label>
+        <select id="tipusaposta" required>
+            <option value="single">Sencilla</option>
+            <option value="falta">Falta/Pasa</option>
+            <option value="par">Par/Impar</option>
+            <option value="color">Rojo/Negro</option>
+            <option value="docena">Docena</option>
+            <option value="sexta">Sexta</option>
+        </select>
+
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" required>
+
+        <button onclick="calcularPremio()">Apostar</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script src="ruleta.js"></script>
+</body>
+</html>
